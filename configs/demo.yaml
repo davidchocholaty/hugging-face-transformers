@@ -1,0 +1,38 @@
+desc: "Baseline experiment. Learning rate scheduler is linear, training 5 epochs."
+
+model:
+  name: "Mistral-7B-Instruct-v0.3"
+  desc: "Mistral AI model."
+  path: "mistralai/Mistral-7B-Instruct-v0.3"
+
+datasets:
+  cnec2:
+    name: "CNEC 2.0 CoNLL"
+    desc: "Czech Named Entity Corpus 2.0 CoNNL dataset. General-language Czech NER dataset."
+    url_path: "https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-3493/cnec2.0_extended.zip"
+  medival:
+    name: "Medieval text"
+    desc: "A Human-Annotated Dataset for Language Modeling and Named Entity Recognition in Medieval Documents"
+    url_path: "https://lindat.mff.cuni.cz/repository/xmlui/bitstream/handle/11234/1-5024/named-entity-recognition-annotations-large.zip?sequence=2&isAllowed=y"
+  wikiann:
+    name: "Wikiann"
+    desc: "WikiANN (sometimes called PAN-X) is a multilingual named entity recognition dataset consisting of Wikipedia articles annotated"
+  slavic:
+    name: "Slavic"
+    desc: "Slavic documents"
+    url_train: "https://bsnlp.cs.helsinki.fi/bsnlp-2021/data/bsnlp2021_train_r1.zip"
+    url_test: "https://bsnlp.cs.helsinki.fi/bsnlp-2021/data/bsnlp2021_test_v5.zip"
+
+training:
+  num_train_epochs: 5
+  batch_size: 32
+
+  optimizer:
+    learning_rate: 5e-5
+    weight_decay: 0.01
+    beta1: 0.9
+    beta2: 0.999
+    eps: 1e-8
+  lr_scheduler:
+    name: "linear"
+    num_warmup_steps: 0

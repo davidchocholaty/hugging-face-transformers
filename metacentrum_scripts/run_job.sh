@@ -15,4 +15,5 @@ JTIMEOUT=$3
 SHOUR=$(echo "$JTIMEOUT" | cut -d: -f1)
 STIME=$((SHOUR - 1))
 
-qsub -v branch="$BRANCHNAME",stime="$STIME",config="$CONFIG" -l walltime="$JTIMEOUT" ./prepare_node.sh
+# -V for exporting the $HUGGINGFACE_TOKEN enviroment variable from the current shell.
+qsub -V -v branch="$BRANCHNAME",stime="$STIME",config="$CONFIG" -l walltime="$JTIMEOUT" ./prepare_node.sh

@@ -1,10 +1,11 @@
 #!/bin/bash
 #PBS -N batch_job_knn
-#PBS -q gpu
-#PBS -l select=1:ncpus=2:ngpus=1:gpu_cap=cuda80:gpu_mem=20gb:mem=20gb:scratch_ssd=20gb:cluster=galdor
+#PBS -l select=1:ncpus=1:mem=10gb:scratch_ssd=10gb
 #PBS -l walltime=1:00:00
 #PBS -j oe
 #PBS -m ae
+
+##PBS -q gpu
 
 # -j oe ... standard error stream of the job will be merged with the standard output stream
 # -m ae ...  mail is sent when the job aborts or terminates
@@ -107,7 +108,7 @@ touch "$all_exp_results"
 all_exp_results_csv="$RESPATH"all_experiment_results_"$curr_date".csv
 
 # Set Hugging Face token. The token is set using the .bashrc file.
-huggingface-cli login --token $HUGGINGFACE_TOKEN --add-to-git-credential
+huggingface-cli login --token $HUGGINGFACE_TOKEN # --add-to-git-credential
 
 # Run and save results for configs in list of configurations
 printf "\nPreparation took %s seconds, starting training...\n" $(($(date +%s) - start_time))
@@ -121,7 +122,7 @@ do
   printf "\nConfig: %s\n" "$config_name"
 
   # Start training
-  printf "Start training\n"
+  printf "Start running\n"
 
   # Run the demo script.
   python demo.py --config "$config_file" # --results_csv "$all_exp_results_csv"

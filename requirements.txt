@@ -1,2 +1,4 @@
 PyYAML==6.0.2
 transformers==4.44.1
+numpy<2
+pybind11>=2.12

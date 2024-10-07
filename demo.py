@@ -83,7 +83,7 @@ def main():
     pipe = pipeline("text-generation", model=config["model"]["path"])
     
     # Get the generated output
-    output = pipe(messages)
+    output = pipe(messages, max_new_tokens=50)
     
     # Print and log the output
     log_msg(f"Generated Output: {output}")

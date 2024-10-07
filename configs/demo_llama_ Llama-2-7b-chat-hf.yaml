@@ -1,9 +1,9 @@
 desc: "Baseline experiment. Learning rate scheduler is linear, training 5 epochs."
 
 model:
-  name: "Llama-2-7b-hf"
+  name: "Llama-2-7b-chat-hf"
   desc: "Meta Llama AI model."
-  path: "meta-llama/Llama-2-7b-hf"
+  path: "meta-llama/Llama-2-7b-chat-hf"
 
 datasets:
   cnec2:

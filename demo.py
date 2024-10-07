@@ -81,7 +81,13 @@ def main():
     ]
     # model: mistralai/Mistral-7B-Instruct-v0.3
     pipe = pipeline("text-generation", model=config["model"]["path"])
-    pipe(messages)
+    
+    # Get the generated output
+    output = pipe(messages)
+    
+    # Print and log the output
+    log_msg(f"Generated Output: {output}")
+    print(f"Generated Output: {output}")
 
 if __name__ == "__main__":
     main()

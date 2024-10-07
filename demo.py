@@ -80,7 +80,7 @@ def main():
         {"role": "user", "content": "Who are you?"},
     ]
     # model: mistralai/Mistral-7B-Instruct-v0.3
-    pipe = pipeline("text-generation", model=config["model"]["path"])
+    pipe = pipeline("text-generation", model=config["model"]["path"], device=0) # device=0 for CPU
     pipe(messages)
 
 if __name__ == "__main__":

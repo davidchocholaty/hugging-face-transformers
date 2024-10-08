@@ -5,6 +5,7 @@ model:
   desc: "Meta Llama AI model."
   path: "meta-llama/Llama-2-7b-chat-hf"
 
+# Not used yet. Kept for demonstration purposes only.
 datasets:
   cnec2:
     name: "CNEC 2.0 CoNLL"
@@ -23,6 +24,7 @@ datasets:
     url_train: "https://bsnlp.cs.helsinki.fi/bsnlp-2021/data/bsnlp2021_train_r1.zip"
     url_test: "https://bsnlp.cs.helsinki.fi/bsnlp-2021/data/bsnlp2021_test_v5.zip"
 
+# Not used yet. Kept for demonstration purposes only.
 training:
   num_train_epochs: 5
   batch_size: 32
